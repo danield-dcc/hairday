@@ -10,6 +10,7 @@ import MoonStarsIcon from "../assets/icons/moonStars.svg?react";
 import SunHorizonIcon from "../assets/icons/sunHorizon.svg?react";
 import TrashIcon from "../assets/icons/trash.svg?react";
 import UserIcon from "../assets/icons/user.svg?react";
+import ButtonIcon from "../components/button-icon";
 
 export default function PageComponents() {
   return (
@@ -46,6 +47,10 @@ export default function PageComponents() {
         <Icon svg={SunHorizonIcon} />
         <Icon svg={TrashIcon} />
         <Icon svg={UserIcon} />
+      </div>
+
+      <div className="flex gap-1">
+        <ButtonIcon icon={TrashIcon} />
       </div>
     </div>
   );
