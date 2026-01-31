@@ -11,6 +11,7 @@ import SunHorizonIcon from "../assets/icons/sunHorizon.svg?react";
 import TrashIcon from "../assets/icons/trash.svg?react";
 import UserIcon from "../assets/icons/user.svg?react";
 import ButtonIcon from "../components/button-icon";
+import InputText from "../components/inputText";
 
 export default function PageComponents() {
   return (
@@ -51,6 +52,10 @@ export default function PageComponents() {
 
       <div className="flex gap-1">
         <ButtonIcon icon={TrashIcon} />
+      </div>
+
+      <div className="flex gap-1">
+        <InputText icon={UserIcon} placeholder="Nome do cliente" />
       </div>
     </div>
   );

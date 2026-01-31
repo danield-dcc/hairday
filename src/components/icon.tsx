@@ -1,7 +1,7 @@
 import { cva, type VariantProps } from "class-variance-authority";
 import type { ComponentProps } from "react";
 
-export const iconVariants = cva("", {
+export const iconVariants = cva("fill-white", {
   variants: {
     animate: {
       false: "",
