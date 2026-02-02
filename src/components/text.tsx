@@ -4,7 +4,7 @@ import { createElement, type ReactNode, type JSX } from "react";
 export const textVariants = cva("font-sans", {
   variants: {
     variant: {
-      "title-lg": "text-[32px] leading-6 font-bold",
+      "title-lg": "text-2xl leading-6 font-bold",
       "title-md": "text-base leading-6 font-bold",
       "title-sm": "text-sm leading-5 font-bold",
       "body-md": "text-base leading-6 font-normal",

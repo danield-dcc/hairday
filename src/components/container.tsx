@@ -1,10 +1,10 @@
 import { cva, type VariantProps } from "class-variance-authority";
 import { createElement, type ComponentProps, type JSX } from "react";
 
-export const ContainerVariants = cva("mx-auto", {
+export const ContainerVariants = cva("", {
   variants: {
     size: {
-      md: "max-w-360 px-2",
+      md: "max-w-360",
     },
   },
   defaultVariants: {

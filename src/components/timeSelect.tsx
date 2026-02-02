@@ -11,7 +11,7 @@ export const timeSelectVariants = cva(
         select: "border-yellow-base",
       },
       size: {
-        md: "w-19.5 h-10 p-1",
+        md: "min-w-19.5 h-10 p-1",
       },
       disabled: {
         true: "bg-transparent border-gray-600 pointer-events-none ",
