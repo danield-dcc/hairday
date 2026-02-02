@@ -12,50 +12,59 @@ import TrashIcon from "../assets/icons/trash.svg?react";
 import UserIcon from "../assets/icons/user.svg?react";
 import ButtonIcon from "../components/button-icon";
 import InputText from "../components/inputText";
+import TimeSelect from "../components/timeSelect";
 
 export default function PageComponents() {
   return (
-    <div className="flex flex-col gap-4">
-      <div className="flex flex-col gap-2">
-        <Text variant="title-lg" className="text-yellow-light">
-          Olá mundo!
-        </Text>
-        <Text variant="title-md" className="text-yellow-light">
-          Olá mundo!
-        </Text>
-        <Text variant="title-sm" className="text-yellow-light">
-          Olá mundo!
-        </Text>
-        <Text variant="body-md" className="text-yellow-light">
-          Olá mundo!
-        </Text>
-        <Text variant="body-sm" className="text-yellow-light">
-          Olá mundo!
-        </Text>
-      </div>
-      <div className="flex flex-col gap-2">
-        <Button>AGENDAR</Button>
-        <Button disabled>AGENDAR</Button>
-      </div>
+    <div className="flex flex-col items-center gap-5">
+      <div className="flex flex-col gap-5">
+        <div className="flex flex-col gap-2">
+          <Text variant="title-lg" className="text-yellow-light">
+            Olá mundo!
+          </Text>
+          <Text variant="title-md" className="text-yellow-light">
+            Olá mundo!
+          </Text>
+          <Text variant="title-sm" className="text-yellow-light">
+            Olá mundo!
+          </Text>
+          <Text variant="body-md" className="text-yellow-light">
+            Olá mundo!
+          </Text>
+          <Text variant="body-sm" className="text-yellow-light">
+            Olá mundo!
+          </Text>
+        </div>
+        <div className="flex flex-col gap-2">
+          <Button>AGENDAR</Button>
+          <Button disabled>AGENDAR</Button>
+        </div>
 
-      <div className="flex gap-1">
-        <Icon svg={CalendarIcon} className="fill-gray-300" />
-        <Icon svg={CaretDownIcon} />
-        <Icon svg={CaretLeftIcon} />
-        <Icon svg={CaretRightIcon} />
-        <Icon svg={CloudSunIcon} />
-        <Icon svg={MoonStarsIcon} />
-        <Icon svg={SunHorizonIcon} />
-        <Icon svg={TrashIcon} />
-        <Icon svg={UserIcon} />
-      </div>
+        <div className="flex gap-1">
+          <Icon svg={CalendarIcon} className="fill-gray-300" />
+          <Icon svg={CaretDownIcon} />
+          <Icon svg={CaretLeftIcon} />
+          <Icon svg={CaretRightIcon} />
+          <Icon svg={CloudSunIcon} />
+          <Icon svg={MoonStarsIcon} />
+          <Icon svg={SunHorizonIcon} />
+          <Icon svg={TrashIcon} />
+          <Icon svg={UserIcon} />
+        </div>
 
-      <div className="flex gap-1">
-        <ButtonIcon icon={TrashIcon} />
-      </div>
+        <div className="flex gap-1">
+          <ButtonIcon icon={TrashIcon} />
+        </div>
 
-      <div className="flex gap-1">
-        <InputText icon={UserIcon} placeholder="Nome do cliente" />
+        <div className="flex gap-1">
+          <InputText icon={UserIcon} placeholder="Nome do cliente" />
+        </div>
+
+        <div className="flex gap-1">
+          <TimeSelect>15:00</TimeSelect>
+          <TimeSelect variant="select">15:00</TimeSelect>
+          <TimeSelect disabled>15:00</TimeSelect>
+        </div>
       </div>
     </div>
   );

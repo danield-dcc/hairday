@@ -1,7 +1,7 @@
 import { cva, type VariantProps } from "class-variance-authority";
 import { createElement, type ReactNode, type JSX } from "react";
 
-export const textVariants = cva("font-sans text-gray-500", {
+export const textVariants = cva("font-sans", {
   variants: {
     variant: {
       "title-lg": "text-[32px] leading-6 font-bold",
@@ -35,6 +35,6 @@ export default function Text({
       className: textVariants({ variant, className }),
       ...props,
     },
-    children
+    children,
   );
 }
