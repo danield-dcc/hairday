@@ -10,7 +10,7 @@ export const buttonIconVariants = cva(
         primary: "",
       },
       size: {
-        sm: "min-w-8 min-h-8",
+        sm: "min-w-4 min-h-4",
       },
       disabled: {
         true: "opacity-50 pointer-events-none",
@@ -25,7 +25,7 @@ export const buttonIconVariants = cva(
       disabled: false,
       handling: false,
     },
-  }
+  },
 );
 
 export const buttonIconIconVariants = cva("transition", {
@@ -34,7 +34,7 @@ export const buttonIconIconVariants = cva("transition", {
       primary: "fill-yellow-base group-hover:fill-yellow-dark",
     },
     size: {
-      sm: "w-8 h-8",
+      sm: "w-full h-full",
     },
   },
   defaultVariants: {
@@ -44,7 +44,8 @@ export const buttonIconIconVariants = cva("transition", {
 });
 
 interface ButtonIconProps
-  extends Omit<ComponentProps<"button">, "size" | "disabled">,
+  extends
+    Omit<ComponentProps<"button">, "size" | "disabled">,
     VariantProps<typeof buttonIconVariants> {
   icon: ComponentProps<typeof Icon>["svg"];
   loading?: boolean;

@@ -12,7 +12,7 @@ export const inputTextWrapperVariants = cva(
         primary: "",
       },
       size: {
-        md: "w-85 h-12 p-3",
+        md: "w-full h-12 p-3",
       },
       disabled: {
         true: "pointer-events-none",
@@ -23,11 +23,11 @@ export const inputTextWrapperVariants = cva(
       size: "md",
       disabled: false,
     },
-  }
+  },
 );
 
 export const inputTextVariants = cva(
-  "bg-transparent outline-none placeholder:text-gray-400 text-gray-200 flex-1 w-full"
+  "bg-transparent outline-none placeholder:text-gray-400 text-gray-200 flex-1 w-full",
 );
 
 export const inputTextIconVariants = cva("fill-yellow-base", {
@@ -42,7 +42,8 @@ export const inputTextIconVariants = cva("fill-yellow-base", {
 });
 
 interface InputTextProps
-  extends VariantProps<typeof inputTextWrapperVariants>,
+  extends
+    VariantProps<typeof inputTextWrapperVariants>,
     Omit<ComponentProps<"input">, "size" | "disabled"> {
   icon?: ComponentProps<typeof Icon>["svg"];
   error?: ReactNode;

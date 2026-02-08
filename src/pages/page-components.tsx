@@ -53,11 +53,15 @@ export default function PageComponents() {
         </div>
 
         <div className="flex gap-1">
-          <ButtonIcon icon={TrashIcon} />
+          <ButtonIcon icon={TrashIcon} className="h-8 w-8" />
         </div>
 
         <div className="flex gap-1">
-          <InputText icon={UserIcon} placeholder="Nome do cliente" />
+          <InputText
+            icon={UserIcon}
+            placeholder="Nome do cliente"
+            className="w-full"
+          />
         </div>
 
         <div className="flex gap-1">
