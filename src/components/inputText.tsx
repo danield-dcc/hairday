@@ -67,6 +67,9 @@ export default function InputText({
           {...props}
         />
       </div>
+      {error && (
+        <span className="text-yellow-base font-bold">{error as string}</span>
+      )}
     </div>
   );
 }
