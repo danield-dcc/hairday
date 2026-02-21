@@ -1,13 +1,14 @@
 import { cva, type VariantProps } from "class-variance-authority";
-import type { ComponentProps } from "react";
-import Text from "./text";
+import { type ComponentProps } from "react";
+import { useFormContext } from "react-hook-form";
+import { DivComponent } from "./div-component";
 
 export const timeSelectVariants = cva(
-  "inline-flex items-center justify-center rounded-lg bg-gray-600 border border-gray-500 group ",
+  "inline-flex items-center justify-center rounded-lg bg-gray-600 border border-gray-500 ml-1.5 mb-2",
   {
     variants: {
       variant: {
-        primary: "hover:border-none hover:bg-gray-500 ",
+        primary: "hover:border-none hover:bg-gray-500 cursor-pointer ",
         select: "border-yellow-base",
       },
       size: {
@@ -41,12 +42,23 @@ export const timeSelectVariantsText = cva("", {
   },
 });
 
+interface Option {
+  value: string;
+  label: string;
+  description?: string;
+}
+
 interface TimeSelectProps
   extends
     Omit<ComponentProps<"div">, "disabled">,
-    VariantProps<typeof timeSelectVariants> {}
+    VariantProps<typeof timeSelectVariants> {
+  name: string;
+  options: Option[];
+}
 
 export default function TimeSelect({
+  options,
+  name,
   variant,
   size,
   className,
@@ -54,17 +66,55 @@ export default function TimeSelect({
   children,
   ...props
 }: TimeSelectProps) {
+  const {
+    register,
+    watch,
+    formState: { errors },
+  } = useFormContext();
+
+  const selected = watch(name);
+  const error = errors[name];
+
   return (
-    <div
-      className={timeSelectVariants({ variant, size, className, disabled })}
-      {...props}
-    >
-      <Text
-        className={timeSelectVariantsText({ variant, className, disabled })}
-        {...props}
-      >
-        {children}
-      </Text>
+    <div>
+      {options?.map((option) => (
+        <DivComponent
+          key={option.value}
+          className={timeSelectVariants({
+            variant: `${selected === option.value ? "select" : "primary"}`,
+            size,
+            className,
+            disabled,
+          })}
+          asChild
+          {...props}
+        >
+          <label
+            key={option.value}
+            className={timeSelectVariantsText({
+              variant,
+              className,
+              disabled,
+            })}
+          >
+            <input
+              type="radio"
+              value={option.value}
+              className="hidden"
+              {...register(name)}
+            />
+            <strong>{option.label}</strong>
+          </label>
+        </DivComponent>
+      ))}
+
+      <div>
+        {error && (
+          <span className="text-yellow-base font-bold">
+            {error.message as string}
+          </span>
+        )}
+      </div>
     </div>
   );
 }
