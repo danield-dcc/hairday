@@ -46,6 +46,7 @@ interface Option {
   value: string;
   label: string;
   description?: string;
+  disabled?: boolean;
 }
 
 interface TimeSelectProps
@@ -84,7 +85,7 @@ export default function TimeSelect({
             variant: `${selected === option.value ? "select" : "primary"}`,
             size,
             className,
-            disabled,
+            disabled: option.disabled,
           })}
           asChild
           {...props}
@@ -101,6 +102,7 @@ export default function TimeSelect({
               type="radio"
               value={option.value}
               className="hidden"
+              disabled={option.disabled}
               {...register(name)}
             />
             <strong>{option.label}</strong>

@@ -6,8 +6,19 @@ import CloudSunIcon from "../assets/icons/cloudSun.svg?react";
 import SunHorizonIcon from "../assets/icons/sunHorizon.svg?react";
 import ListSchedulesItems from "./list-schedules/list-schedules-items";
 import ListSchedulesCard from "./list-schedules/list-schedules-card";
+import useSchedules from "../hooks/use-schedules";
+import { useEffect } from "react";
+import { useForm } from "react-hook-form";
 
 export default function ListSchedules() {
+  const form = useForm();
+  const selectedDate = form.watch("scheduleDate");
+
+  const { schedules } = useSchedules();
+
+  useEffect(() => {
+    console.log(schedules);
+  }, [schedules, selectedDate]);
   return (
     <Container className="bg-gray-900 rounded-xl w-226.5 py-20 px-28 ">
       <div className="flex flex-row justify-between">
@@ -20,7 +31,14 @@ export default function ListSchedules() {
           </Text>
         </div>
 
-        <InputText type="date" icon={DataIcon} placeholder="10/01/2024" />
+        <form>
+          <InputText
+            type="date"
+            icon={DataIcon}
+            placeholder="10/01/2024"
+            {...form.register("scheduleDate")}
+          />
+        </form>
       </div>
 
       <div className="flex flex-col mt-8 gap-3">
