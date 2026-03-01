@@ -52,7 +52,6 @@ export default function CreateScheduling() {
   const nightSchedules = toOptions(["19:00", "20:00", "21:00"]);
 
   function handleFormSubmit(payload: any) {
-    console.log(payload);
     saveSchedule(payload);
     form.reset();
   }

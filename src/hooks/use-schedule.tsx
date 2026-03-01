@@ -27,7 +27,12 @@ export function useSchedule() {
     }
   }
 
+  function deleteSchedule(id: string) {
+    setSchedules(schedules.filter((schedule) => schedule.id !== id));
+  }
+
   return {
     saveSchedule,
+    deleteSchedule,
   };
 }
